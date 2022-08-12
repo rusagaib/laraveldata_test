@@ -1,0 +1,15 @@
+top 10 produk terlaris
+select product.product_name, count(1) from product   
+inner join order_detail on product.id = order_detail.product_id
+group by product.product_name order by count(1) DESC limit 10
+---
+top 10 customer paling banyak beli
+select name, count(1) from orders 
+group by name order by count(1) DESC limit 10
+---
+top 10 agent paling banyak customer
+select agent.store_name, count(1) from orders 
+inner join agent on agent.id = orders.agent_id
+group by agent_id order by count(1) DESC limit 10
+
+
